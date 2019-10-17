@@ -58,6 +58,10 @@ body {
   font-size: 3.5rem;
   font-weight: 400; }
 
+.character-count {
+  font-size: 2rem;
+  color: grey; }
+
 .textarea {
   width: 100%;
   height: 20rem;

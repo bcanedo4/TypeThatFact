@@ -1,0 +1,15 @@
+body {
+  font-weight: 400;
+  line-height: 1.7;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.heading-primary {
+  &--main {
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    // letter-spacing: .5rem;
+    text-align: center;
+  }
+}

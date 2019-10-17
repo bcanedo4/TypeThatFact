@@ -1,4 +1,16 @@
 .textarea {
-  width: 30rem;
+  width: 100%;
   height: 20rem; 
+  background-color: $color-secondary;
+  font-size: 3rem;
+  padding: 1rem;
+  padding-left: 2rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+  border-radius: 8px;
+
+
+  &__container {
+    text-align: center;
+    padding: 8rem;
+  }
 }

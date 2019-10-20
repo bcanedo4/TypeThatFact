@@ -21,7 +21,6 @@ fetch(`https://uselessfacts.jsph.pl/random.json?language=en`)
     textarea.setAttribute('placeholder', 'Enter the above text here.');
     textarea.setAttribute('class', 'textarea');
     textarea.setAttribute('id', 'textareaId');
-
     // add classes and data for count
     count.setAttribute('class', 'character-count');
 
@@ -37,27 +36,23 @@ fetch(`https://uselessfacts.jsph.pl/random.json?language=en`)
 
 const compareText = (text, length) => {
   let fact = h1.innerHTML;
-  // let factCount = h1.innerHTML.length;
-  // console.log(factCount);
   let factCompare = fact.substring(0, length);
   if (factCompare === text) {
-    console.log('right');
+    document.getElementById('textareaId').className += ' highlight-correct';
+    document.getElementById('textareaId').classList.remove('highlight-wrong');
   } else {
-    console.log('wrong');
+    document.getElementById('textareaId').className += ' highlight-wrong';
+    document.getElementById('textareaId').classList.remove('highlight-correct');
   }
-
-  console.log(text, length);
 }
 
+// listen for textarea input
 if (textarea.addEventListener) {
+  // Chrome, Firefox
   textarea.addEventListener('input', () => {
-    // Chrome, Firefox
-    // count.innerHTML = ""
-
     compareText(textarea.value, textarea.value.length);
   }, false);
-} else if (textarea.attachEvent) {
-    console.log('IE', textarea.value);
+} // IE 
+else if (textarea.attachEvent) {
+  compareText(textarea.value, textarea.value.length);
 }
-
-console.log(textarea);

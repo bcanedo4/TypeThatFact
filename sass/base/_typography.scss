@@ -21,3 +21,17 @@ body {
     // text-align: center;
   }
 }
+
+.highlight {
+  &-none {
+    color: $color-white;
+  }
+
+  &-correct {
+    color: $color-correct;
+  }
+
+  &-wrong {
+    color: $color-wrong;
+  }
+}

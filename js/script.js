@@ -3,6 +3,7 @@ const h1 = document.createElement('h1');
 const headingContainer = document.createElement('div');
 const textareaContainer = document.createElement('div');
 const textarea = document.createElement('textarea');
+const modal = document.getElementById('myModal');
 const count = document.createElement('p');
 
 // fetch random fact
@@ -40,10 +41,21 @@ const compareText = (text, length) => {
   if (factCompare === text) {
     document.getElementById('textareaId').className += ' highlight-correct';
     document.getElementById('textareaId').classList.remove('highlight-wrong');
+
+    // run finishedTyping() when user is done typing
+    if (fact === factCompare) {
+      finishedTyping();
+    }
   } else {
     document.getElementById('textareaId').className += ' highlight-wrong';
     document.getElementById('textareaId').classList.remove('highlight-correct');
   }
+}
+
+const finishedTyping = () => {
+  console.log(modal);
+  modal.className += ' shown';
+  modal.classList.remove('hidden');
 }
 
 // listen for textarea input

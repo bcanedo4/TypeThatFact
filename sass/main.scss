@@ -1,10 +1,13 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
+@import "abstracts/utilities";
 
+@import "base/animations";
 @import "base/base";
 @import "base/typography";
 
 @import "components/character-count";
+@import "components/modal";
 @import "components/textarea";
 
 @import "pages/home";

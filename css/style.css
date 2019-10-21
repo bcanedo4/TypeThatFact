@@ -117,7 +117,7 @@ body {
     position: relative;
     background-color: #ffee58;
     margin: auto;
-    padding: 2rem;
+    padding: 2rem 6rem;
     width: 80%;
     height: 90vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -126,7 +126,7 @@ body {
     animation-name: animatetop;
     animation-duration: 0.4s; }
   .modal-header {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     text-align: center; }
 
 .textarea {
@@ -144,6 +144,12 @@ body {
   .textarea__container {
     text-align: center;
     padding: 8rem; }
+
+#words__container {
+  margin-top: 4rem; }
+
+.results__text {
+  font-size: 3rem; }
 
 #root {
   width: 100%;

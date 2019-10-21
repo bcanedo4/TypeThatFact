@@ -11,47 +11,60 @@ const wpm = document.createElement('span');
 const wordsTypedContainer = document.getElementById('words__container');
 const wordsTyped = document.createElement('span');
 
+const secondsTypingContainer = document.getElementById('seconds-typing__container');
+const secondsTyping = document.createElement('span');
+
 const count = document.createElement('p');
 const btn = document.createElement('button');
+
+const tryAgainBtn = document.getElementById('try-again');
+tryAgainBtn.addEventListener('click', () => {
+  modal.className += ' hidden';
+  modal.classList.remove('shown');
+
+  fetchFact();
+})
+
 let startTime = Date.now();
 
-// fetch random fact
-fetch(`https://uselessfacts.jsph.pl/random.json?language=en`)
-  .then(response => {
-    return response.json()
-  })
-  .then(data => {
-    // add classes and data for fact and container
-    headingContainer.setAttribute('class', 'heading__container')
-    h1.textContent = data.text;
-    h1.setAttribute('class', 'heading-primary--sub');
-
-    // add classes and data for textarea and container
-    textareaContainer.setAttribute('class', 'textarea__container');
-    textarea.setAttribute('placeholder', 'Enter the above text here.');
-    textarea.setAttribute('class', 'textarea');
-    textarea.setAttribute('id', 'textareaId');
-    // add classes and data for count
-    count.setAttribute('class', 'character-count');
-
-    app.appendChild(headingContainer);
-    app.appendChild(btn);
-
-    // dev button, remove later
-    btn.textContent = 'DEV FINISH';
-    btn.addEventListener('click', () => {
-      finishedTyping();
+const fetchFact = () => {
+  textarea.innerHTML = '';
+  // fetch random fact
+  fetch(`https://uselessfacts.jsph.pl/random.json?language=en`)
+    .then(response => {
+      return response.json()
     })
+    .then(data => {
+      // add classes and data for fact and container
+      headingContainer.setAttribute('class', 'heading__container')
+      h1.textContent = data.text;
+      h1.setAttribute('class', 'heading-primary--sub');
 
-    headingContainer.appendChild(h1);
-    app.appendChild(textareaContainer);
-    textareaContainer.appendChild(textarea);
-    textarea.appendChild(count);
-    
-  })
-  .catch(err => {
-    console.log(err);
-  })
+      // add classes and data for textarea and container
+      textareaContainer.setAttribute('class', 'textarea__container');
+      textarea.setAttribute('placeholder', 'Enter the above text here.');
+      textarea.setAttribute('class', 'textarea');
+      textarea.setAttribute('id', 'textareaId');
+      // add classes and data for count
+      count.setAttribute('class', 'character-count');
+
+      app.appendChild(headingContainer);
+      app.appendChild(btn);
+
+      // dev button to open modal, remove later
+      btn.textContent = 'DEV FINISH';
+      btn.addEventListener('click', () => {
+        finishedTyping();
+      })
+
+      headingContainer.appendChild(h1);
+      app.appendChild(textareaContainer);
+      textareaContainer.appendChild(textarea);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
 
 const compareText = (text, length) => {
   let fact = h1.innerHTML;
@@ -85,7 +98,7 @@ const finishedTyping = (startTime, numberOfWords) => {
   let timeDifference = endTime - startTime;
   timeDifference /= 1000;
 
-  let minutes = Math.round(timeDifference * 60);
+  let seconds = Math.round(timeDifference * 100) / 100;
 
   let wordsPerSecond = numberOfWords / timeDifference;
   let wordsPerMinute = wordsPerSecond * 60;
@@ -109,6 +122,9 @@ const finishedTyping = (startTime, numberOfWords) => {
 
   wordsTyped.textContent = numberOfWords;
   wordsTypedContainer.appendChild(wordsTyped);
+
+  secondsTyping.textContent = seconds += ' seconds';
+  secondsTypingContainer.appendChild(secondsTyping);
 }
 
 // listen for textarea input
@@ -121,3 +137,5 @@ if (textarea.addEventListener) {
 else if (textarea.attachEvent) {
   compareText(textarea.value, textarea.value.length);
 }
+
+fetchFact();

@@ -1,4 +1,10 @@
 .try-again {
+  display: block;
+  background-color: $color-secondary;
+  margin: 0 auto;
+  margin-top: 10rem;
   border-radius: 4px;
-  border: 2px solid $color-secondary-light;
+  font-size: 3.4rem;
+  border: 2px solid $color-black;
+  padding: 1rem 2rem;
 }

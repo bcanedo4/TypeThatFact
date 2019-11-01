@@ -90,6 +90,16 @@ body {
 .highlight-wrong {
   color: #FF5656; }
 
+.try-again {
+  display: block;
+  background-color: #ffee58;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 4px;
+  font-size: 3.4rem;
+  border: 2px solid #000000;
+  padding: 1rem 2rem; }
+
 .character-count {
   font-size: 2rem;
   color: grey; }

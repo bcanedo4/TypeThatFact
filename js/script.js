@@ -4,6 +4,7 @@ const headingContainer = document.createElement('div');
 const textareaContainer = document.createElement('div');
 const textarea = document.createElement('textarea');
 const modal = document.getElementById('myModal');
+const errorPrompt = document.createElement('error__prompt');
 
 const wpmContainer = document.getElementById('wpm__container');
 const wpm = document.createElement('span');
@@ -22,13 +23,14 @@ tryAgainBtn.addEventListener('click', () => {
   modal.className += ' hidden';
   modal.classList.remove('shown');
 
+  // set textarea to be empty
+  textarea.value = '';
   fetchFact();
 })
 
 let startTime = Date.now();
 
 const fetchFact = () => {
-  textarea.innerHTML = '';
   // fetch random fact
   fetch(`https://uselessfacts.jsph.pl/random.json?language=en`)
     .then(response => {
@@ -37,6 +39,7 @@ const fetchFact = () => {
     .then(data => {
       // add classes and data for fact and container
       headingContainer.setAttribute('class', 'heading__container')
+      
       h1.textContent = data.text;
       h1.setAttribute('class', 'heading-primary--sub');
 
@@ -105,13 +108,6 @@ const finishedTyping = (startTime, numberOfWords) => {
 
   let wordsPerSecondRounded = Math.round(wordsPerSecond * 100) / 100;
   let wordsPerMinuteRounded = Math.round(wordsPerMinute * 100) / 100;
-
-  console.log('words', numberOfWords);
-  console.log('seconds', timeDifference);
-  console.log('wordsPerSecond', wordsPerSecond);
-  console.log('wordsPerMinute', wordsPerMinute);
-  console.log('wordsPerSecondR', wordsPerSecondRounded);
-  console.log('wordsPerMinuteR', wordsPerMinuteRounded);
 
   // show modal
   modal.className += ' shown';

@@ -1,7 +1,16 @@
 #words__container {
   margin-top: 4rem;
+
+  @include respond(phone) {
+    margin-top: 2rem;
+  }
 }
 
 .results__text {
   font-size: 3rem;
+
+  @include respond(phone) {
+    line-height: 1;
+    margin-bottom: 2rem;
+  }
 }

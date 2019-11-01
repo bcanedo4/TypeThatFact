@@ -13,5 +13,9 @@
   padding: .5rem;
   padding-left: 2rem;
   border-radius: 8px;
+
+  @include respond(phone) {
+    margin: 1.5rem;
+  }
 }
 

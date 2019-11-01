@@ -72,7 +72,7 @@ const fetchFact = () => {
 }
 
 const compareText = (text, length) => {
-  let fact = h1.innerHTML.replace(apostrapheRegex, `'`);
+  let fact = h1.innerHTML;
   let numberOfWords = fact.split(' ').length;
   let userInput = fact.substring(0, length);
 

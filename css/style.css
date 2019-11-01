@@ -135,9 +135,16 @@ body {
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s; }
+    @media only screen and (max-width: 37.5em) {
+      .modal-content {
+        padding: 1rem 2rem;
+        height: 80vh; } }
   .modal-header {
     font-size: 4.5rem;
     text-align: center; }
+    @media only screen and (max-width: 37.5em) {
+      .modal-header {
+        line-height: 1.2; } }
 
 .textarea {
   width: 100%;
@@ -153,13 +160,23 @@ body {
     outline: none; }
   .textarea__container {
     text-align: center;
-    padding: 8rem; }
+    margin: 8rem; }
+    @media only screen and (max-width: 37.5em) {
+      .textarea__container {
+        margin: 1.5rem; } }
 
 #words__container {
   margin-top: 4rem; }
+  @media only screen and (max-width: 37.5em) {
+    #words__container {
+      margin-top: 2rem; } }
 
 .results__text {
   font-size: 3rem; }
+  @media only screen and (max-width: 37.5em) {
+    .results__text {
+      line-height: 1;
+      margin-bottom: 2rem; } }
 
 #root {
   width: 100%;
@@ -174,3 +191,6 @@ body {
   padding: .5rem;
   padding-left: 2rem;
   border-radius: 8px; }
+  @media only screen and (max-width: 37.5em) {
+    .heading__container {
+      margin: 1.5rem; } }

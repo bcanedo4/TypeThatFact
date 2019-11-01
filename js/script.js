@@ -4,7 +4,7 @@ const headingContainer = document.createElement('div');
 const textareaContainer = document.createElement('div');
 const textarea = document.createElement('textarea');
 const modal = document.getElementById('myModal');
-const errorPrompt = document.createElement('error__prompt');
+const apostrapheRegex = /`/gi;
 
 const wpmContainer = document.getElementById('wpm__container');
 const wpm = document.createElement('span');
@@ -39,8 +39,10 @@ const fetchFact = () => {
     .then(data => {
       // add classes and data for fact and container
       headingContainer.setAttribute('class', 'heading__container')
-      
-      h1.textContent = data.text;
+
+      // turn ` into ' 
+      let refinedData = data.text.replace(apostrapheRegex, `'`);
+      h1.textContent = refinedData;
       h1.setAttribute('class', 'heading-primary--sub');
 
       // add classes and data for textarea and container
@@ -70,14 +72,13 @@ const fetchFact = () => {
 }
 
 const compareText = (text, length) => {
-  let fact = h1.innerHTML;
+  let fact = h1.innerHTML.replace(apostrapheRegex, `'`);
   let numberOfWords = fact.split(' ').length;
   let userInput = fact.substring(0, length);
 
   // user starts typing, begin timer
   if (userInput.length === 1) {
     startTime = Date.now();
-    console.log('start', startTime);
   }
 
   if (userInput === text) {
@@ -106,8 +107,7 @@ const finishedTyping = (startTime, numberOfWords) => {
   let wordsPerSecond = numberOfWords / timeDifference;
   let wordsPerMinute = wordsPerSecond * 60;
 
-  let wordsPerSecondRounded = Math.round(wordsPerSecond * 100) / 100;
-  let wordsPerMinuteRounded = Math.round(wordsPerMinute * 100) / 100;
+  let wordsPerMinuteRounded = Math.round(wordsPerMinute);
 
   // show modal
   modal.className += ' shown';

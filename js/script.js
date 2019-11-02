@@ -14,9 +14,6 @@ const wordsTyped = document.createElement('span');
 const secondsTypingContainer = document.getElementById('seconds-typing__container');
 const secondsTyping = document.createElement('span');
 
-const count = document.createElement('p');
-const btn = document.createElement('button');
-
 const tryAgainBtn = document.getElementById('try-again');
 tryAgainBtn.addEventListener('click', () => {
   modal.className += ' hidden';
@@ -39,7 +36,7 @@ const fetchFact = () => {
       // add classes and data for fact and container
       headingContainer.setAttribute('class', 'heading__container')
   
-      // turn ` into ', remove &nbsp;, remove whitespace at ends; 
+      // turn ` into ', remove &nbsp;, remove whitespace at ends
       let refinedData = data.text.replace(/`/gi, `'`).replace(/&nbsp;/gi, '').trim();
       
       h1.textContent = refinedData;
@@ -50,17 +47,15 @@ const fetchFact = () => {
       textarea.setAttribute('placeholder', 'Enter the above text here.');
       textarea.setAttribute('class', 'textarea');
       textarea.setAttribute('id', 'textareaId');
-      // add classes and data for count
-      count.setAttribute('class', 'character-count');
 
       app.appendChild(headingContainer);
-      app.appendChild(btn);
+      // app.appendChild(btn);
 
       // dev button to open modal, remove later
-      btn.textContent = 'DEV FINISH';
-      btn.addEventListener('click', () => {
-        finishedTyping();
-      })
+      // btn.textContent = 'DEV FINISH';
+      // btn.addEventListener('click', () => {
+      //   finishedTyping();
+      // })
 
       headingContainer.appendChild(h1);
       app.appendChild(textareaContainer);

@@ -160,7 +160,7 @@ body {
     outline: none; }
   .textarea__container {
     text-align: center;
-    margin: 8rem; }
+    margin: 4rem; }
     @media only screen and (max-width: 37.5em) {
       .textarea__container {
         margin: 1.5rem; } }
@@ -187,7 +187,7 @@ body {
 
 .heading__container {
   background-color: #FFFFFF;
-  margin: 8rem;
+  margin: 4rem;
   padding: .5rem;
   padding-left: 2rem;
   border-radius: 8px; }

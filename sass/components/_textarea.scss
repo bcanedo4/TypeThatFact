@@ -16,7 +16,7 @@
 
   &__container {
     text-align: center;
-    margin: 8rem;
+    margin: 4rem;
 
     @include respond(phone) {
       margin: 1.5rem;

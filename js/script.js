@@ -4,7 +4,6 @@ const headingContainer = document.createElement('div');
 const textareaContainer = document.createElement('div');
 const textarea = document.createElement('textarea');
 const modal = document.getElementById('myModal');
-const apostrapheRegex = /`/gi;
 
 const wpmContainer = document.getElementById('wpm__container');
 const wpm = document.createElement('span');
@@ -39,9 +38,10 @@ const fetchFact = () => {
     .then(data => {
       // add classes and data for fact and container
       headingContainer.setAttribute('class', 'heading__container')
-
-      // turn ` into ' 
-      let refinedData = data.text.replace(apostrapheRegex, `'`);
+  
+      // turn ` into ', remove &nbsp;, remove whitespace at ends; 
+      let refinedData = data.text.replace(/`/gi, `'`).replace(/&nbsp;/gi, '').trim();
+      
       h1.textContent = refinedData;
       h1.setAttribute('class', 'heading-primary--sub');
 

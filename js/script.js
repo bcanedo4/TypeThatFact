@@ -49,9 +49,8 @@ const fetchFact = () => {
       textarea.setAttribute('id', 'textareaId');
 
       app.appendChild(headingContainer);
-      // app.appendChild(btn);
 
-      // dev button to open modal, remove later
+      // dev button to open modal, comment while not in use
       // btn.textContent = 'DEV FINISH';
       // btn.addEventListener('click', () => {
       //   finishedTyping();

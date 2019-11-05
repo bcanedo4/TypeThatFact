@@ -39,8 +39,8 @@ This project is licensed under the ISC License.
 
 ## Acknowledgments 
 
-A huge thank you to the API that generates the useless facts: (https://uselessfacts.jsph.pl/) 
+A huge thank you to the API that generates the useless facts: (https://uselessfacts.jsph.pl/). 
 
 ## Questions, Suggestions, Feedback? 
 
-Let's chat! Feel free to message me here or at my linkedIn (https://www.linkedin.com/in/brian-canedo/)
+Let's chat! Feel free to message me here or at my linkedIn: (https://www.linkedin.com/in/brian-canedo/).

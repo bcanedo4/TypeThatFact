@@ -17,9 +17,11 @@ If you'd like to view the project on a phone or tablet, you can use ngrok. Ngrok
 
 1. Download or clone the project.
 
-2. Run the command ```live-server``` in the root of the project directory.
+2. Run ```npm i``` to download the project's dependencies.
 
-3. You should be navigated to http://127.0.0.1:8080 with the project working!
+3. Run the command ```live-server``` in the root of the project directory.
+
+4. You should be navigated to http://127.0.0.1:8080 with the project working!
 
 ## Getting Started on Mobile View
 
